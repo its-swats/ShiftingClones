@@ -1,0 +1,134 @@
+[gd_scene load_steps=5 format=3 uid="uid://b03ihqc3k12qi"]
+
+[ext_resource type="Script" path="res://Card.gd" id="1_65b2k"]
+[ext_resource type="Texture2D" uid="uid://cs5dmidpdj2ck" path="res://Assets/Cards/CardOutline.png" id="1_rvkmc"]
+[ext_resource type="Material" uid="uid://dvlw1o0x2f3wf" path="res://Assets/Shaders/GlowMaterial.tres" id="2_b8sqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyyxy"]
+size = Vector2(112, 170)
+
+[node name="Card" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_65b2k")
+glow_shader = ExtResource("2_b8sqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tyyxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rvkmc")
+
+[node name="Control" type="Control" parent="Sprite2D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.5
+offset_top = -85.0
+offset_right = -57.5
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00348, 1.00313)
+
+[node name="Score" type="Label" parent="Sprite2D/Control"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 107.0
+offset_bottom = 45.0
+scale = Vector2(0.964945, 0.894342)
+size_flags_vertical = 0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 24
+text = "5"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Sprite2D/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 42
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D/Control/MarginContainer"]
+visible = false
+layout_mode = 2
+color = Color(1, 1, 1, 0.160784)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -13
+
+[node name="Row3" type="HBoxContainer" parent="Sprite2D/Control/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Col1" type="Label" parent="Sprite2D/Control/MarginContainer/VBoxContainer/Row3"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="Col2" type="Label" parent="Sprite2D/Control/MarginContainer/VBoxContainer/Row3"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="Col3" type="Label" parent="Sprite2D/Control/MarginContainer/VBoxContainer/Row3"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="Row2" type="HBoxContainer" parent="Sprite2D/Control/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Col1" type="Label" parent="Sprite2D/Control/MarginContainer/VBoxContainer/Row2"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="Col2" type="Label" parent="Sprite2D/Control/MarginContainer/VBoxContainer/Row2"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="Col3" type="Label" parent="Sprite2D/Control/MarginContainer/VBoxContainer/Row2"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="Row1" type="HBoxContainer" parent="Sprite2D/Control/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Col1" type="Label" parent="Sprite2D/Control/MarginContainer/VBoxContainer/Row1"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="Col2" type="Label" parent="Sprite2D/Control/MarginContainer/VBoxContainer/Row1"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="Col3" type="Label" parent="Sprite2D/Control/MarginContainer/VBoxContainer/Row1"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 28

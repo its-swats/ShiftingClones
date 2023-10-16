@@ -1,0 +1,3 @@
+CardPattern
+Resource
+GameTile

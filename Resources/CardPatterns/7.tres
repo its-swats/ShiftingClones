@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardPattern" load_steps=2 format=3 uid="uid://btp3o7p7ijrv4"]
+
+[ext_resource type="Script" path="res://Resources/CardPattern.gd" id="1_7agit"]
+
+[resource]
+script = ExtResource("1_7agit")
+TopRow = Array[int]([2])
+MidRow = Array[int]([5])
+BotRow = Array[int]([])
+points = 1

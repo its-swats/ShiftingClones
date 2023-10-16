@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1rbvmsv86hk8"]
+
+[ext_resource type="Script" path="res://GameManager.gd" id="1_tp8j6"]
+[ext_resource type="PackedScene" uid="uid://c15pcdik7me48" path="res://UI.tscn" id="2_i7w66"]
+[ext_resource type="PackedScene" uid="uid://bluymadboa8em" path="res://TileContainer.tscn" id="2_jq83l"]
+[ext_resource type="PackedScene" uid="uid://bscno0vyev6ap" path="res://HandContainer.tscn" id="3_gce4x"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_tp8j6")
+
+[node name="UI" parent="." instance=ExtResource("2_i7w66")]
+mouse_filter = 2
+
+[node name="TileContainer" parent="." instance=ExtResource("2_jq83l")]
+
+[node name="HandContainer" parent="." instance=ExtResource("3_gce4x")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

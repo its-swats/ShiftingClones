@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GameTile" load_steps=4 format=3 uid="uid://d25x8fut4iro2"]
+
+[ext_resource type="Script" path="res://Resources/GameTile.gd" id="1_vop5d"]
+[ext_resource type="Texture2D" uid="uid://eg8knfcysa3x" path="res://Assets/Tiles/Card2_Back.png" id="2_u77ql"]
+[ext_resource type="Texture2D" uid="uid://dtmbuahbe01pi" path="res://Assets/Tiles/Card2_Front.png" id="3_4c4de"]
+
+[resource]
+script = ExtResource("1_vop5d")
+texture_front = ExtResource("3_4c4de")
+texture_back = ExtResource("2_u77ql")
+front_id = 2
+back_id = 3

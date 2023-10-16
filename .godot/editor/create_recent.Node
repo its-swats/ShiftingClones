@@ -1,0 +1,17 @@
+Label
+HBoxContainer
+VBoxContainer
+ColorRect
+MarginContainer
+Control
+CanvasGroup
+CanvasLayer
+Button
+RichTextLabel
+Area2D
+StaticBody2D
+TextureRect
+CollisionShape2D
+AnimationPlayer
+Sprite2D
+Node
