@@ -4,6 +4,7 @@ class_name Card
 signal card_discarded(card: Card)
 signal card_scored(card: Card)
 
+const DRAG_DELAY_LENGTH = 0.115
 const lookup = {
 	GameTile.TileID.A: 'A',
 	GameTile.TileID.B: 'B',
@@ -17,7 +18,7 @@ const lookup = {
 }
 
 @export var glow_shader: Material = null
-var draggable = false
+var highlighted = false
 var dragging = false
 var moving = false
 var offset
@@ -25,6 +26,7 @@ var reset_pos
 var over_discard = false
 var card_data: CardData
 var scorable = false
+var drag_delay := DRAG_DELAY_LENGTH
 
 func _ready():
 	mouse_entered.connect(_on_mouse_entered)
@@ -48,21 +50,32 @@ func set_up(data):
 			internal_idx += 1
 		idx += 1
 
-func _process(_delta):
-	if(draggable && !dragging && !moving && Input.is_action_just_pressed('click')):
+func _process(delta):
+	if(drag_delay <= 0 && highlighted && !dragging && !moving && Input.is_action_pressed('click')):
 		start_drag()
+	elif(highlighted && !dragging && Input.is_action_pressed('click')):
+		drag_delay -= delta
 	elif(dragging && Input.is_action_pressed('click')):
 		follow_mouse()
 	elif(dragging && Input.is_action_just_released('click')):
 		stop_drag()
-
+	elif(highlighted && !dragging && Input.is_action_just_released('click')):
+		if(scorable):
+			get_parent().remove_child(self)
+			card_scored.emit(self)
+			queue_free()
+		drag_delay = DRAG_DELAY_LENGTH
+	else:
+		drag_delay = DRAG_DELAY_LENGTH
+		
 func _on_mouse_entered():
-	draggable = true
+	highlighted = true
 	if(!moving):
 		get_tree().create_tween().tween_property(self, 'scale', Vector2(1.1, 1.1), 0.1)
 	
 func _on_mouse_exited():
-	draggable = false
+	highlighted = false
+	drag_delay = DRAG_DELAY_LENGTH
 	get_tree().create_tween().tween_property(self, 'scale', Vector2(1, 1), 0.1)
 
 func _on_area_entered(_area):

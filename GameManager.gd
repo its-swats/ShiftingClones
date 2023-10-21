@@ -49,6 +49,7 @@ func deal_card():
 		var new_card = card_scene.instantiate()
 		new_card.set_up(card)
 		new_card.card_discarded.connect(_on_card_discarded)
+		new_card.card_scored.connect(_on_card_scored)
 		hand.append(new_card)
 		$HandContainer.place_card(new_card)
 
@@ -70,7 +71,10 @@ func on_drag_ended(pos):
 func _on_card_discarded(card: Card):
 	State.discard()
 	remove_card(card)
-	print(hand)
+
+func _on_card_scored(card: Card):
+	State.score(card.card_data)
+	remove_card(card)
 	
 func adjacent_tiles(pos1, pos2):
 	if (pos1 == null || pos2 == null):

@@ -11,7 +11,6 @@ var actions: int = 0
 func score(card: CardData):
 	points += card.points
 	update_points.emit(points)
-	print(points)
 
 func can_act():
 	return actions >= 1
